@@ -1,0 +1,22 @@
+== README
+
+To get a dev version working locally:
+* <tt>git clone git@github.com:JonSEng/gp-taskmanagement.git</tt>
+* <tt>cd gp-taskmanagement</tt>
+* <tt>make server</tt>
+
+... and you're all set!
+
+
+
+Helper commands:
+* To reset DB locally:
+  * <tt>make server</tt>
+* To get Heroku to reset its schema:
+  * <tt>heroku run rake db:schema:load</tt>
+* To inspect current state of Rails DB:
+  * <tt>rails console</tt>
+* To view all Rails routes:
+  * <tt>rake routes</tt>
+* To generate documentation:
+  * <tt>rake doc:app</tt>

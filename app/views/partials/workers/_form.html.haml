@@ -1,0 +1,6 @@
+= form_tag  "/task_sessions/#{params[:task_session_id]}/tasks/add_worker", :method => :post do
+  = text_field_tag "Person", "", { :id => "sidebar_worker", :placeholder => "Name", "autocomplete" => "off", "data-provide" => "typeahead", "data-source" => @task_container.all_people_not_in_session}
+  %br
+  = text_field_tag "Phone Number", "", { :placeholder => "Phone Number" }
+  = button_tag :type => "submit", :class => "btn btn-success add-unassigned-worker", :onclick => "return checkvalue('sidebar_worker')" do
+    %i.icon-plus

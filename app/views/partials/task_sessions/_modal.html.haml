@@ -1,0 +1,17 @@
+#task_session_modal.modal.hide.fade.in{:style => "display: none; "}
+  .modal-header
+    %div.modal-header-bar
+      %a.close.modal-header-button{"data-dismiss" => "modal"} ×
+      %h3 #{task_session.title}
+  .modal-body
+    %div.sidebar_container.modal_sidebar_container
+      %div.sidebar_menu
+        %div
+          %a#edit_task_session.sidebar_menu_item.modal_menu_item.first_menu_item
+            Edit Task Session
+        %div#delete_task_session.modal_delete_item
+          = image_tag "trash.png", size:"25x25", :class => "btn btn-danger"
+    .sidebar_main_content.modal_main_content
+      %div
+        = render "partials/task_sessions/edit_task_session", :task_session => task_session
+        = render "partials/task_sessions/delete_task_session", :task_session => task_session

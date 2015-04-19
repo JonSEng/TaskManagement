@@ -1,0 +1,27 @@
+.container.md-sections.table-container
+  %h1 New Task Session
+  
+  = form_for(@task_session) do |f|
+    - if @task_session.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@task_session.errors.count, "error")} prohibited this task_session from being saved:"
+        %ul
+          - @task_session.errors.full_messages.each do |msg|
+            %li= msg
+
+    .field
+      = f.label :title
+      = f.text_field :title, value: @task_session != nil ? @task_session.title : "", :placeholder => "Title", :id => "title"
+    .field
+      = f.label :location
+      = f.text_field :location, value: @task_session != nil ? @task_session.location: "", :placeholder => "Location", :id => "location"
+    .field
+      = f.label :admin
+      = f.text_field :admin, value: @task_session != nil ? @task_session.admin : "", :placeholder => "Admin Name", :id => "admin"
+    .field
+      = f.label 'Date'
+      = f.date_field :date, :value => (@task_session.date != nil) ? Date.parse(@task_session.date.to_s) : Date.today.to_s
+    .actions
+      = f.submit 'Save', :onclick => "return checkvalue('title') && checkvalue('location') && checkvalue('admin')"
+
+  = link_to 'Back', task_sessions_path

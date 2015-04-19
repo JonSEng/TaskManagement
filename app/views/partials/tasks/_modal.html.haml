@@ -1,0 +1,35 @@
+#subtask_modal.modal.hide.fade.in{:style => "display: none; "}
+  .modal-header
+    %div.modal-header-bar
+      %a.close.modal-header-button{"data-dismiss" => "modal"} ×
+      %h3{:style => "text-align: center"} #{task.title}
+  .modal-body
+    %div.sidebar_container.modal_sidebar_container
+      %div.sidebar_menu
+        %div
+          %a#edit_task.sidebar_menu_item.modal_menu_item.first_menu_item
+            Edit Task
+        %div.sidebar_menu_separator.modal_separator
+        %div
+          %a#all_subtasks.sidebar_menu_item.modal_menu_item
+            Subtasks
+        %div.sidebar_menu_separator.modal_separator
+        %div
+          %a#add_subtask.sidebar_menu_item.modal_menu_item
+            Add Subtask
+        -if in_task_session and not task.is_finished
+          %div.sidebar_menu_separator.modal_separator
+          %div
+            %a#workers.sidebar_menu_item.modal_menu_item
+              Workers
+        %div#delete_task.modal_delete_item
+          = image_tag "trash.png", size:"25x25", :class => "btn btn-danger"
+
+    .sidebar_main_content.modal_main_content
+      %div
+        = render "partials/subtasks/all_subtasks", :subtasks => task.subtasks, :task => task
+        = render "partials/subtasks/add_subtask", :task => task
+        = render "partials/tasks/edit_task", :task => task
+        -if in_task_session and not task.is_finished
+          = render "partials/tasks/workers", :task => task
+        = render "partials/tasks/delete_task", :task => task

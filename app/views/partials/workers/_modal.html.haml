@@ -1,0 +1,43 @@
+#edit_worker.modal.hide.fade.in{:style => "display: none; "}
+  .modal-header
+    %div.modal-header-bar
+      %a.close.modal-header-button{"data-dismiss" => "modal"} ×
+      %h3{:style => "text-align: center"} Worker Info
+  .modal-body
+    %div.sidebar_container.modal_sidebar_container
+      %div.sidebar_menu
+        %div
+          %a#edit_worker_info.sidebar_menu_item.modal_menu_item.first_menu_item
+            Edit Info
+        %div
+          %a#edit_worker_assignments.sidebar_menu_item.modal_menu_item
+            Assignments
+        %div#delete_worker.modal_delete_item
+          = image_tag "trash.png", size:"25x25", :class => "btn btn-danger"
+    .sidebar_main_content.modal_main_content
+      %div
+        %div.worker_info
+          %p
+            %span{ :style => "font-weight: bold;" }Name:
+            #{person.name}
+          %p
+            %span{ :style => "font-weight: bold;" }Phone Number:
+            #{person.phone_number}
+            - if person.phone_number == ""
+              N/A
+        %div.worker_tasks.hide
+          %p
+            - if person.tasks.length == 0
+              %span{ :style => "font-weight: bold;" }
+                #{person.name.gsub(/\d+$/, "").strip()} has not been assigned to any tasks yet.
+            - else
+              %span{ :style => "font-weight: bold;" }Assigned:
+              %br
+              - person.tasks.each do |task|
+                #{task.title}
+                = link_to task_session_unassign_worker_path(:Person => person.name, :task_id => task.id), :method => :post do
+                  %i.icon-remove-sign{style: "color:red"}
+        .delete_worker.hide
+          %h4 Delete Worker
+          %a{ :id => "#edit_worker_assignments", :class => "btn btn-danger", :href => "remove_worker?Person=#{person.name.gsub(/\ /,'+')}" }
+            Delete This Worker

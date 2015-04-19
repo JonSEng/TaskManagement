@@ -1,0 +1,6 @@
+%ul.nav{:id => "people_list"}
+  -if @task_container.workers.length > 0
+    %li.nav-header Members
+    -@task_container.workers.sort_by { |worker| worker.name }.each do |worker|
+      = render "partials/workers/single_worker", :person => worker, :unassigned => worker.unemployed
+    %br

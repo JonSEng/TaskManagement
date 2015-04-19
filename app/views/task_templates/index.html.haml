@@ -1,0 +1,30 @@
+.container.table-container.table-no-bottom
+  .container_header
+    %h1.md-sections Listing Task Templates
+    %hr
+
+  %table.md-sections.table.pretty.table-hover
+    %thead
+      %tr
+        %th#column_date
+          = sortable 'date'
+        %th#column_title
+          =sortable 'title'
+        %th#column_location
+          = sortable 'location'
+        %th#column_created_by
+          =sortable 'created_by', 'Created By'
+
+    %tbody
+      - @task_templates.each do |task_template|
+        %tr.link_to_tasks{:href => task_template_tasks_path(task_template.id) }
+          %td.template_date= (task_template.date != nil) ? task_template.date.strftime('%B %e, %Y') : nil
+          %td.template_title= task_template.title
+          %td.template_location= task_template.location
+          %td.template_created_by= task_template.created_by
+          %td
+            = image_tag "pencil.png", size:"25x25", :class => "show_edit_task_template btn btn-success"
+            = render "partials/task_templates/modal", :task_template => task_template
+  %a{ :href => new_task_template_path }
+    .appendable.table_ending
+      +

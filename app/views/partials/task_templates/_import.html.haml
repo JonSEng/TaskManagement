@@ -1,0 +1,9 @@
+%div
+  - if in_task_session
+    =link_to "Save Session As Template", task_session_save_path, class: "a btn btn-primary"
+%br
+%select{ :name => "question[question_status]", :id => "import_task_set", :style => "display: none"}
+  -TaskTemplate.all.each do |template|
+    %option{:value => "#{template.title}"}= "#{template.title}"
+%br
+%a.btn.btn-primary.btn-large#import_task_template{onclick: "importTasks()"} Import!

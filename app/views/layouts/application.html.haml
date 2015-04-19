@@ -1,0 +1,23 @@
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %link{:href => "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", :rel => "stylesheet"}/
+    %title= content_for?(:title) ? yield(:title) : "GpTaskManagement"
+    = csrf_meta_tags
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+  %body
+    .visible-body
+      =render 'partials/flash_notice'
+      =yield
+    #bug_report
+      = image_tag "bug.png", size:"25x25", :class => "btn btn-danger"
+      .bug_report_text.bug_report_hidden
+        Found a bug? Please contact us at
+        %a{:href => "ldanielw1@gmail.com"} ldanielw1@gmail.com
+        and let us know!

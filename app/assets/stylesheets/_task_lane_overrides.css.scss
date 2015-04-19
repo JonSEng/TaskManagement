@@ -1,0 +1,44 @@
+@import "variables";
+
+#task_lane {
+    background: #{$menu-background};
+    overflow-y: auto;
+
+    border-radius: #{$rounded-corners};
+    width: #{$lane-width};
+    padding: #{$task-lane-padding};
+    margin-bottom: #{$page-margins};
+
+    /*Top = padding(sidebar_main_content)+margin-top(h1)+line-height(h1)+margin-bottom(hr)*/
+    position: absolute;
+    top: #{$nav-bar-height + 10 + 10 + 40 + 10};
+    bottom: 0px;
+}
+
+.task {
+    box-shadow: -2px 2px 5px #{$nav-bar-background};
+    background: #{$menu-background};
+    -webkit-transition:all 0.5s;
+    transition:all 0.35s;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 5px;
+    height: 45px;
+    cursor:pointer;
+}
+
+.task:hover {
+    background: #{$menu-hover-background};
+    color: #{$menu-hover-textcolor};
+}
+
+.task_title {
+    margin: 0px;
+}
+
+.lane_ending {
+    position: absolute;
+    margin-left: #{-1 * $task_lane_padding};
+    width: #{$lane-width + $task_lane_padding + $task_lane_padding};
+    bottom: 0px;
+}

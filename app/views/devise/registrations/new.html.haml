@@ -1,0 +1,11 @@
+%center.container.table-container
+  %h2 Sign Up
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    = f.email_field :email, :type => "hidden", :value => session["devise.user_attributes"]["email"]
+
+    = f.label :phone_number, "Phone Number:"
+    = f.telephone_field :phone_number, :autofocus => true
+
+    %br
+    = f.submit "Sign Up", :class => "btn btn-primary btn-large"

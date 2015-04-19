@@ -1,0 +1,38 @@
+@import "variables";
+
+.navbar-inner {
+    max-height:#{$nav-bar-height};
+    min-height:#{$nav-bar-height};
+}
+
+.navbar {
+    font-size: 16px;
+    border-bottom: none;
+}
+
+.navbar .nav > li > a, .navbar .brand {
+    padding: 10px 20px 0px 0px;
+}
+
+.navbar .brand {
+    font-size: 18px;
+    margin-left: 0px;
+}
+
+.navbar-fixed-top .navbar-inner {
+    background: #{$nav-bar-background};
+}
+
+.navbar-right {
+    float: right;
+    margin-right: #{$margins};
+}
+
+.navbar-left {
+    float: left;
+    margin-left: #{$margins};
+}
+
+.nav-header {
+    padding: 0px;
+}

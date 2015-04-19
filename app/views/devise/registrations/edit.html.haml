@@ -1,0 +1,37 @@
+%div.sidebar_container
+  %div.sidebar_menu
+    %div
+      %a#show_profile.sidebar_menu_item.first_menu_item
+        Profile
+    %div
+      %a#show_notifications.sidebar_menu_item
+        Notifications
+    %div
+      %a#show_delete_account.sidebar_menu_item
+        Delete Account
+%center.sidebar_main_content
+  = render "partials/users/edit_user"
+
+:javascript
+
+  (function() {
+
+    $("#show_profile").click(function() {
+      $("#profile").show()
+      $("#delete_account").hide()
+      $("#notifications").hide()
+    })
+
+    $("#show_notifications").click(function() {
+      $("#profile").hide()
+      $("#delete_account").hide()
+      $("#notifications").show()
+    })
+
+    $("#show_delete_account").click(function() {
+      $("#profile").hide()
+      $("#delete_account").show()
+      $("#notifications").hide()
+    })
+
+  })();

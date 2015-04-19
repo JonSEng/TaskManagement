@@ -1,0 +1,31 @@
+.container.table-container.table-no-bottom
+  .container_header
+    %h1.md-sections Listing Task Sessions
+    %hr
+
+  %table.md-sections.table.pretty.table-hover#task_sessions_table
+    %thead
+      %tr
+        %th#column_date
+          = sortable 'date'
+        %th#column_title 
+          =sortable 'title'
+        %th#column_location
+          = sortable 'location'
+        %th#column_admin 
+          =sortable 'admin', 'Task Administrator'
+
+    %tbody
+    - @task_sessions.each do |task_session|
+      %tr.link_to_tasks{:href => task_session_tasks_path(task_session.id) }
+        %td.session_date= (task_session.date != nil)? task_session.date.strftime('%B %e, %Y') : nil
+        %td.session_title= task_session.title
+        %td.session_location= task_session.location
+        %td.session_admin= task_session.admin
+        %td
+          = image_tag "pencil.png", size:"25x25", :class => ".show_edit_task_session btn btn-success"
+          .session_modal
+            = render "partials/task_sessions/modal", :task_session => task_session
+  %a{ :href => new_task_session_path }
+    .appendable.table_ending
+      +

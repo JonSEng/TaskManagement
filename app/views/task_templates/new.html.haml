@@ -1,0 +1,27 @@
+.container.md-sections.table-container
+  %h1 New Task Template
+  
+  = form_for(@task_template) do |f|
+    - if @task_template.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@task_template.errors.count, "error")} prohibited this task template from being saved:"
+        %ul
+          - @task_template.errors.full_messages.each do |msg|
+            %li= msg
+
+    .field
+      = f.label :title
+      = f.text_field :title, value: @task_template != nil ? @task_template.title : "", :placeholder => "Title", :id => "title"
+    .field
+      = f.label :location
+      = f.text_field :location, value: @task_template != nil ? @task_template.location: "", :placeholder => "Location", :id => "location"
+    .field
+      = f.label :created_by
+      = f.text_field :created_by, value: @task_template != nil ? @task_template.created_by : "", :placeholder => "Name", :id => "created_by"
+    .field
+      = f.label 'Date'
+      = f.date_field :date, :value => Date.today.to_s
+    .actions
+      = f.submit 'Save', :onclick => "return checkvalue('title') && checkvalue('location') && checkvalue('created_by')"
+
+  = link_to 'Back', task_templates_path

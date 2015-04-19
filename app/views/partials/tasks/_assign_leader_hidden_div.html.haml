@@ -1,0 +1,5 @@
+%div{:class => "assign_leader_div hide"}
+  = form_tag task_session_task_assign_leader_path(:id => task.id) do
+    = text_field_tag "person", "", { :id => "task#{task.id}leader", "autocomplete" => "off", "data-provide" => "typeahead", "data-source" => @task_container.all_people_with_number, :placeholder => "Name"}
+    = button_tag :type => "submit", :class => "btn btn-success", :onclick => "return checkvalue('task#{task.id}leader')" do
+      %i.icon-plus

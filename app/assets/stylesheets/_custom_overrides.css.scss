@@ -1,0 +1,32 @@
+@import "variables";
+
+.add_item {
+    border-bottom-left-radius: #{$rounded-corners};
+    border-bottom-right-radius: #{$rounded-corners};
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    height: 20px;
+    background: gray;
+
+}
+
+#people_list {
+    margin-bottom:0px;
+}
+
+.all_subtasks {
+    text-align: left;
+}
+
+.add-task-element, .add-unassigned-worker, .assign-worker {
+    margin-bottom: 11px;
+}
+
+.show_edit_worker {
+    margin-left: 10px;
+}
+
+.link_to_tasks {
+    cursor: pointer;
+}

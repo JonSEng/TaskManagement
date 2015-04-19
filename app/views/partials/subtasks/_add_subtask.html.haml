@@ -1,0 +1,6 @@
+.add_subtask.hide
+  %h4 Add Subtask
+  = form_tag request.fullpath + "/#{task.id}/add_subtask"  do
+    = text_area_tag "description", "", {"autocomplete" => "off", :placeholder => "Subtask Description", :size => "25x10"}
+    = button_tag :type => "submit", :class => "btn btn-success" do
+      %i.icon-plus

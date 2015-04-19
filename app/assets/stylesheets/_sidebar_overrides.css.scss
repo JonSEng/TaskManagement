@@ -1,0 +1,99 @@
+@import "variables";
+
+.sidebar_container {
+    box-shadow: -5px 2px 4px #{$nav-bar-background};
+    border-top-left-radius: #{$rounded-corners};
+    background: #{$menu-background};
+    position: fixed;
+    top: #{$nav-bar-height};
+    bottom: 0px;
+    right: 0px;
+}
+
+.modal_sidebar_container.sidebar_container {
+    border-top-left-radius: #{$rounded-corners};
+    border-bottom-right-radius: #{$rounded-corners};
+    position: absolute;
+    height: #{$modal-body-height};
+    top: 0px;
+}
+
+.sidebar_menu {
+    font-weight:bold;
+    font-size: 18px;
+}
+
+.sidebar_menu > div > a:hover {
+    background: #{$menu-hover-background};
+    color: #{$menu-hover-textcolor};
+}
+
+a.sidebar_menu_item {
+    cursor: pointer;
+}
+
+.sidebar_menu_separator {
+    width: #{$sidebar-width - 20};
+    margin-right: auto;
+    margin-left: auto;
+    height: 2px;
+    background:lightgray;
+}
+
+.sidebar_menu_separator.modal_separator {
+    width: #{$modal-width - 20};
+}
+
+.first_menu_item {
+    border-top-left-radius: #{$rounded-corners};
+}
+
+.sidebar_menu_item {
+    display: table-cell;
+    width: #{$sidebar-width};
+    height: #{$menu-item-height};
+    vertical-align: middle;
+    text-align: center;
+}
+
+.sidebar_menu_item.modal_menu_item {
+    width: #{$modal-width};
+}
+
+.sidebar_main_content {
+    margin-right: #{$sidebar-width};
+    overflow-y: auto;
+    padding: 10px #{$page-margins};
+}
+
+.sidebar_main_content.modal_main_content {
+    height: #{$modal-body-height - 20px};
+    margin-right: #{$modal-width};
+    position: absolute;
+    top: 0px;
+}
+
+.sidebar_menu_item_content {
+    font-size: 14px;
+    padding: 0px 15px;
+    -webkit-transition:all 0.5s;
+    transition:all 0.5s;
+    max-height: 0px;
+    overflow: hidden;
+}
+
+.sidebar_menu_item_content_show {
+    max-height: 500px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+.sidebar_menu_item_content > ul > li.nav-header {
+    padding-left: 0px;
+}
+
+//I have no idea why this works. But it fixes margin issues. - Taipei
+.all_subtasks {
+    margin-top: -5px;
+}

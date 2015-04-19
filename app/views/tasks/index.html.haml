@@ -1,0 +1,85 @@
+%div.sidebar_container
+  %div.sidebar_menu
+    - if in_task_session
+      %div
+        %a#show_all_workers.sidebar_menu_item.first_menu_item
+          People
+      %div#all_workers.sidebar_menu_item_content
+        = render "partials/workers/all_workers"
+        = render "partials/workers/form"
+      %div.sidebar_menu_separator
+    %div
+      - if in_task_session
+        %a#show_add_tasks.sidebar_menu_item
+          Add Task
+      - if not in_task_session
+        %a#show_add_tasks.sidebar_menu_item.first_menu_item
+          Add Task
+      %div#add_tasks.sidebar_menu_item_content
+        = render "partials/tasks/add_task"
+    %div.sidebar_menu_separator
+    %div
+      %a#show_import_task_templates.sidebar_menu_item
+        Task Templates
+      %div#import_task_templates.sidebar_menu_item_content
+        = render "partials/task_templates/import"
+
+%div.sidebar_main_content
+  %div#session_header
+    %h1#session_title #{@task_container.title}
+  %hr
+  = render "partials/tasks/all_tasks"
+
+
+:javascript
+
+  function importTasks() {
+    var save_url = window.location.toString().split(/\/tasks.*/)[0] + "/import/" + $("#import_task_set").val();
+    window.location = save_url;
+  }
+
+  (function() {
+
+    $(".show_subtask_modal").click(function() {
+      $(this).parent().find("#subtask_modal").modal('show');
+    })
+
+    $(".show_edit_worker").click(function() {
+      $(this).parent().find("#edit_worker").modal('show');
+    });
+
+    $("#show_all_workers").click(function() {
+        if ($("#all_workers").css("max-height") == "0px") {
+            $("#all_workers").addClass("sidebar_menu_item_content_show");
+        } else {
+            $("#all_workers").removeClass("sidebar_menu_item_content_show");
+        }
+    });
+
+    $("#show_import_task_templates").click(function() {
+        if ($("#import_task_templates").css("max-height") == "0px") {
+            $("#import_task_templates").addClass("sidebar_menu_item_content_show");
+        } else {
+            $("#import_task_templates").removeClass("sidebar_menu_item_content_show");
+        }
+    });
+
+    $("#show_add_tasks").click(function() {
+        if ($("#add_tasks").css("max-height") == "0px") {
+            $("#add_tasks").addClass("sidebar_menu_item_content_show");
+        } else {
+            $("#add_tasks").removeClass("sidebar_menu_item_content_show");
+        }
+    });
+
+    //Add worker popover. For a more general case, use [data-toggle="popover"] for the selector.
+    $('.assign_leader_button').popover({
+      html: true,
+      title: "Assign Lead",
+      content: function() {
+        return $(this).parent().find('.assign_leader_div').html()
+      }
+    });
+
+
+  })();

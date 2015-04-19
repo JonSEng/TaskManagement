@@ -1,0 +1,8 @@
+.workers.hide
+  %h4 Workers
+  -task.workers.each do |worker|
+    %p #{worker.name}
+  = form_tag task_session_task_assign_worker_path(:id => task.id) do
+    = text_field_tag "person", "", { :id => "task#{task.id}worker", "autocomplete" => "off", "data-provide" => "typeahead", "data-source" => @task_container.all_people_with_number, :placeholder => "Add Worker"}
+    = button_tag :type => "submit", :class => "btn btn-success", :onclick => "return checkvalue('task#{task.id}worker')" do
+      %i.icon-plus

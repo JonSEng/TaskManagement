@@ -1,0 +1,23 @@
+= form_tag  request.fullpath + "/#{task.id}/edit_task", :remote => true, :class => "edit_task"  do
+  %h4 Edit Task
+  Title:
+  = text_field_tag "title", "#{task.title}"
+  %br
+
+  -if in_task_session
+    Lead:
+    = text_field_tag "person", "#{task.leader_with_num}", {"autocomplete" => "off", "data-provide" => "typeahead", "data-source" => @task_container.all_people_with_number, :placeholder => "Name"}
+    %br
+
+  Notes:
+  = text_area_tag "notes", "#{task.notes}"
+  %br
+
+  Minimum People Needed:
+  = text_field_tag "min_workers", "#{task.min_workers}"
+  %br
+
+  Maximum People Needed:
+  = text_field_tag "max_workers", "#{task.max_workers}"
+  %p
+  = button_tag "Edit", :type => "submit", :class => "submit_edit_task btn btn-success"

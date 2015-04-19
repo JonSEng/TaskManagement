@@ -1,0 +1,53 @@
+@import "variables";
+
+body, .modal {
+    background-color: #{$background};
+}
+
+.modal {
+    border-radius: #{$rounded-corners};
+    cursor: default;
+}
+
+.modal-header {
+    border-top-left-radius: #{$rounded-corners};
+    border-top-right-radius: #{$rounded-corners};
+    background: #{$background};
+    color: #{$menu-textcolor};
+    height: #{$nav-bar-height};
+    padding: 0px;
+}
+
+.modal-header-bar {
+    background: #{$nav-bar-background};
+    height: #{$nav-bar-height};
+    padding: 9px 15px;
+}
+
+.modal-body {
+    border-bottom-right-radius: #{$rounded-corners};
+    border-bottom-left-radius: #{$rounded-corners};
+    height: #{$modal-body-height};
+    background: #{$background};
+    padding: 0px;
+    overflow-y: hidden;
+}
+
+.close {
+    font-size: 40px;
+    color: #{$menu-hover-background};
+    opacity: 0.6;
+}
+
+.close:hover {
+    color: #{$menu-hover-background};
+    opacity: 1.0;
+}
+
+.modal_delete_item {
+    position: absolute;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    bottom: 0px;
+    right: 0px;
+}

@@ -1,0 +1,17 @@
+#task_template_modal.modal.hide.fade.in{:style => "display: none; "}
+  .modal-header
+    %div.modal-header-bar
+      %a.close.modal-header-button{"data-dismiss" => "modal"} ×
+      %h3 #{task_template.title}
+  .modal-body
+    %div.sidebar_container.modal_sidebar_container
+      %div.sidebar_menu
+        %div
+          %a#edit_task_template.sidebar_menu_item.modal_menu_item.first_menu_item
+            Edit Task Template
+        %div#delete_task_template.modal_delete_item
+          = image_tag "trash.png", size:"25x25", :class => "btn btn-danger"
+    .sidebar_main_content.modal_main_content
+      %div
+        = render "partials/task_templates/edit_task_template", :task_template => task_template
+        = render "partials/task_templates/delete_task_template", :task_template => task_template

@@ -1,0 +1,23 @@
+%h1 Listing subtasks
+
+%table
+  %tr
+    %th Title
+    %th Description
+    %th Finished
+    %th
+    %th
+    %th
+
+  - @subtasks.each do |subtask|
+    %tr
+      %td= subtask.title
+      %td= subtask.description
+      %td= subtask.finished
+      %td= link_to 'Show', subtask
+      %td= link_to 'Edit', edit_subtask_path(subtask)
+      %td= link_to 'Destroy', subtask, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Subtask', new_subtask_path

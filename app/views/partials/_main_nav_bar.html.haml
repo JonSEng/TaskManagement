@@ -1,0 +1,17 @@
+.navbar.navbar-inverse.navbar-fixed-top
+  .navbar-inner
+    %div.navbar-left
+      %ul.nav
+        %li.active
+          %a.brand{href: root_path} GP Task Management
+        %li.active
+          %a{href: task_sessions_path} Task Sessions
+        %li.active
+          %a{href: "/task_templates"} Task Templates
+    - if current_user
+      %p.navbar-text.navbar-right
+        %a{:href => edit_user_registration_path }
+          = image_tag current_user.picture, size:"32x32", :class => "user_img"
+          = current_user.first_name + " " + current_user.last_name
+        \|
+        = link_to "Sign Out", destroy_user_session_path, method: :delete

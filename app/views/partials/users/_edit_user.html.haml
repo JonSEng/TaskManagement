@@ -1,0 +1,21 @@
+%div#profile.container.table-container
+  %h2
+    Profile
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }, :remote => true) do |f|
+    = devise_error_messages!
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      %div
+        Currently waiting confirmation for: #{resource.unconfirmed_email}
+    %div
+      = f.label :phone_number
+      = f.telephone_field :phone_number, :autofocus => true
+    %div
+      = f.submit "Update", :class => "btn btn-primary btn-large"
+
+%div#notifications.hide.container.table-container
+  %h2
+    Notifications
+
+%div#delete_account.hide.container.table-container
+  %h2 Delete my account
+  #{button_to "Delete My Account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "btn btn-danger btn-large" }

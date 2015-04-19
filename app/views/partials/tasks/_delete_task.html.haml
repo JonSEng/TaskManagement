@@ -1,0 +1,4 @@
+.delete_task.hide
+  %h4 Delete Task
+  = link_to request.fullpath + "/#{task.id}/delete_task", :id => "delete_#{task.id}", :method => :post, :class => "btn btn-danger" do
+    Delete This Task

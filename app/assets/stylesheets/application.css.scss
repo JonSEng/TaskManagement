@@ -1,0 +1,60 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require messages
+ *= require scaffolds
+ *= require flat-ui
+ *= require _flat_ui_overrides
+ *= require _modal_overrides
+ *= require _sidebar_overrides
+ *= require _task_lane_overrides
+ *= require _nav_bar_overrides
+ *= require _gp_taskmanagement_overrides
+ *= require _custom_overrides
+*/
+
+@import "flat_ui_overrides";
+
+body {
+  overflow:hidden;
+}
+
+.visible-body {
+  overflow: auto;
+  padding-top: #{$nav-bar-height};
+}
+
+.body {
+  background-color: rgb(230, 230, 230);
+}
+
+.md-sections {
+  width: 100%;
+  text-align: center;
+}
+
+/*---------------- Table Sorting ------------------*/
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty th .asc {
+  background-image: url(/images/arrow_up.gif);
+}
+
+.pretty th .desc {
+  background-image: url(/images/arrow_down.gif);
+}
+
+body {
+  background: url(/images/road.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+}

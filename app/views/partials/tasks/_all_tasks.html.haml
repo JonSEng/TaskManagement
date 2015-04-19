@@ -1,0 +1,2 @@
+-((in_task_session) ? ["To Do", "In Progress", "Done"] : ["Tasks"]).each_with_index do |_task_lane_title, _index|
+  = render 'partials/tasks/task_lane', :locals => {:title => _task_lane_title, :index => _index }

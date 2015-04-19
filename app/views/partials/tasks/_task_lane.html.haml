@@ -1,0 +1,13 @@
+%div#task_lane{ :style => task_lane_style(locals[:index]) }
+  %h4
+    %strong
+      = locals[:title]
+  -@tasks.each do |_task|
+    -if locals[:index] == 0 and _task.progress == 0
+      = render 'partials/tasks/single_task', :task => _task
+    -if locals[:index] == 1 and _task.progress > 0 and _task.progress < 100
+      = render 'partials/tasks/single_task', :task => _task
+    -if locals[:index] == 2 and _task.progress == 100
+      = render 'partials/tasks/single_task', :task => _task
+  .appendable.lane_ending
+    +

@@ -1,0 +1,12 @@
+%div
+  %div.task.show_subtask_modal
+    %h4.task_title
+      = task.title
+    - if in_task_session
+      .task_leader
+        - if (task.leader_name != nil and task.leader_name != "")
+          %p
+            %strong #{task.leader_name}
+        - else
+          %p No leader yet
+  = render "partials/tasks/modal", :task => task

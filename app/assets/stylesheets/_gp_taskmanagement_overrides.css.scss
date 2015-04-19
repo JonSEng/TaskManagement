@@ -1,0 +1,98 @@
+@import "variables";
+
+body h1{
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+#session_title {
+    text-align: left;
+}
+
+.container {
+    width: #{$container-width};
+}
+
+.table-container {
+    background: #{$table-container-background};
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 30px;
+    margin-top: #{$margins};
+    border-radius:10px;
+}
+
+.table-container.table-no-bottom {
+    padding-bottom: 0px;
+}
+
+.container_header {
+    padding: 0px #{$margins} 0px #{$margins};
+}
+
+
+.table {
+    margin-bottom: 0px;
+}
+
+.appendable {
+    border-bottom-left-radius: #{$rounded-corners};
+    border-bottom-right-radius: #{$rounded-corners};
+    padding: 0px;
+
+    background: #{$appendable-background};
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    color: gray;
+    cursor: pointer;
+}
+
+.appendable:hover {
+    -webkit-transition:all 0.3s;
+    transition:all 0.3s;
+    background: gray;
+    color: #{$table-container-background};
+}
+
+.table_ending {
+    width: #{$container-width};
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.user_img {
+    border-radius: 15px;
+}
+
+.modal_form {
+    text-align: left;
+}
+
+#bug_report {
+    background: #{$table-container-background};
+    border-radius: 5px;
+    overflow: hidden;
+
+    position: absolute;
+    bottom: 0px;
+    right: 5px;
+}
+
+.bug_report_text {
+    -webkit-transition:all 0.5s ease 0s;
+    transition:all 0.5s ease 0s;
+    margin-top: 7px;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 90%;
+}
+
+.bug_report_text.bug_report_hidden {
+    padding: 0px;
+    max-width: 0px;
+    max-height: 0px;
+}

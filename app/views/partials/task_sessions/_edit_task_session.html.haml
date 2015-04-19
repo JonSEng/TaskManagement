@@ -1,0 +1,26 @@
+.edit_task_session.modal_form
+  = form_for(task_session, :remote => true) do |f|
+    - if task_session.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(task_session.errors.count, "error")} prohibited this task_session from being saved:"
+        %ul
+          - task_session.errors.full_messages.each do |msg|
+            %li= msg
+
+    Title:
+    = f.text_field :title, value: task_session != nil ? task_session.title : "", :placeholder => "Title", :id => "title"
+    %br
+
+    Location:
+    = f.text_field :location, value: task_session != nil ? task_session.location: "", :placeholder => "Location", :id => "location"
+    %br
+
+    Admin:
+    = f.text_field :admin, value: task_session != nil ? task_session.admin : "", :placeholder => "Admin Name", :id => "admin"
+    %br
+
+    Date:
+    = f.date_field :date, :value => (task_session.date != nil) ? Date.parse(task_session.date.to_s) : Date.today.to_s
+    %br
+
+    = f.submit 'Save', :onclick => "return checkvalue('title') && checkvalue('location') && checkvalue('admin')", :class => "submit_edit_task_session"

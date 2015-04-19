@@ -1,0 +1,16 @@
+.container.table-container.table-no-bottom
+  .container_header
+    %h1.md-sections Gracepoint Tasks
+    %hr
+
+  .md-sections
+    %p.lead
+      The perfect way to get people moving. Assign, reassign, create, and manage your tasks like no other
+    %p
+      - if current_user
+        %a.btn.btn-primary.btn-large{href: task_sessions_path }
+          Launch Tasks
+      - if !current_user
+        %a.btn.btn-primary.btn-large{href: user_omniauth_authorize_path(:google_oauth2) }
+          Sign in with Google
+

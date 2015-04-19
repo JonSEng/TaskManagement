@@ -1,0 +1,22 @@
+.all_subtasks.hide
+  %h4 Notes: #{task.notes}
+  -if in_task_session
+    = form_tag task_session_task_update_subtasks_path(:id => task.id) do
+      -subtasks.each do |subtask|
+        = link_to request.fullpath + "/delete_subtask/#{subtask.id}", :class => "btn btn-danger" do
+          %i.icon-remove
+        = check_box_tag subtask.id, subtask.id, subtask.finished, :name => "subtask_ids[]"
+        = label_tag subtask.id, "#{subtask.description}", :style => "display: inline"
+        %p
+      = button_tag :type => "submit", :class => "btn btn-success" do
+        %p.btn-large Update
+  -else
+    = form_tag task_template_task_update_subtasks_path(:id => task.id) do
+      -subtasks.each do |subtask|
+        = link_to request.fullpath + "/delete_subtask/#{subtask.id}", :class => "btn btn-danger" do
+          %i.icon-remove
+        = check_box_tag subtask.id, subtask.id, subtask.finished, :name => "subtask_ids[]"
+        = label_tag subtask.id, "#{subtask.description}", :style => "display: inline"
+        %p
+      = button_tag :type => "submit", :class => "btn btn-success" do
+        %p.btn-large Update

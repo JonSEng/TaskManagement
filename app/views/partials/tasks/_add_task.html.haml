@@ -1,0 +1,5 @@
+%h4
+= form_tag request.fullpath + "/add_task", :method => :post do
+  = text_field_tag "task_title", "", {:id => "task_title", :placeholder => "Task Name"}
+  = button_tag :type => "submit", :class => "btn btn-success add-task-element",  :onclick => "return checkvalue('task_title')" do
+    %i.icon-plus

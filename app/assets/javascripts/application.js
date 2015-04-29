@@ -29,6 +29,11 @@ function checkvalue(id) {
     }
   }
 
+function importTasks() {
+    var save_url = window.location.toString().split(/\/tasks.*/)[0] + "/import/" + $("#import_task_set").val();
+    window.location = save_url;
+}
+
 $(document).ready(function() {
     $("#bug_report").bind("mouseenter", function() {
         $(".bug_report_text").removeClass("bug_report_hidden");

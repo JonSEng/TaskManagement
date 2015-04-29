@@ -59,7 +59,6 @@ group :production do
 end
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
 gem 'byebug'
 
 #Added to try to get css working on heroku http://stackoverflow.com/questions/16271696/cant-get-css-working-on-heroku-using-rails-4-with-bootstrap-saas-gem

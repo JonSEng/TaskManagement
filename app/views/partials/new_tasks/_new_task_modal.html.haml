@@ -1,0 +1,15 @@
+#task_modal.new_task_modal.modal.hide.fade.in{:style => "display: none; "}
+  .modal-header
+    %div.modal-header-bar
+      %a.close.modal-header-button{"data-dismiss" => "modal"} ×
+      %h3{:style => "text-align: center"} New Task
+  .modal-body
+    %div.sidebar_container.modal_sidebar_container
+      %div.sidebar_menu
+        %div
+          %a#edit_task.sidebar_menu_item.modal_menu_item.first_menu_item
+            Edit Task
+
+    .sidebar_main_content.modal_main_content
+      %div
+        = render "partials/new_tasks/edit_task"

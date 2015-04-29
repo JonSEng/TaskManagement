@@ -81,7 +81,7 @@ class TasksController < ApplicationController
   end
 
   def add_task
-    task_params = { :title => params[:task_title] }
+    task_params = { :title => params[:title] }
     task_params[:task_session_id] = params[:task_session_id].to_i if params[:task_session_id]
     task_params[:task_template_id] = params[:task_template_id].to_i if params[:task_template_id]
     Task.create(task_params)
@@ -256,7 +256,7 @@ class TasksController < ApplicationController
   end
 
   def get_all_tasks
-    tasks = Task.order("title")
+    tasks = Task.order("LOWER(title)")
     if params[:task_session_id]
       return tasks.find_all_by_task_session_id(params[:task_session_id].to_i)
     elsif params[:task_template_id]

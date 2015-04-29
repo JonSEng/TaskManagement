@@ -2,7 +2,7 @@ class Subtask < ActiveRecord::Base
   belongs_to :task
   has_and_belongs_to_many :workers
 
-  attr_accessible :title, :description, :task_id, :finished
+  attr_accessible :title, :description, :task_id, :finished, :created_at, :updated_at
 
   def make_copy
     subtask_params = {}

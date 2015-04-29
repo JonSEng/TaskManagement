@@ -1,0 +1,23 @@
+= form_tag  request.fullpath + "/add_task", :remote => true, :class => "add_task"  do
+  %h4 New Task
+  Title:
+  = text_field_tag "title", ""
+  %br
+
+  -if in_task_session
+    Lead:
+    = text_field_tag "person", "", {"autocomplete" => "off", "data-provide" => "typeahead", "data-source" => @task_container.all_people_with_number, :placeholder => "Name"}
+    %br
+
+  Notes:
+  = text_area_tag "notes", ""
+  %br
+
+  Minimum People Needed:
+  = text_field_tag "min_workers", ""
+  %br
+
+  Maximum People Needed:
+  = text_field_tag "max_workers", ""
+  %p
+  = button_tag "Submit", :type => "submit", :class => "submit_add_task btn btn-success"
